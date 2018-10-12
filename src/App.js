@@ -17,9 +17,6 @@ class App extends React.Component {
       board: [],
       gameOver: false,
       message: '',
-      p2: "DogDuck",
-      p1: "Kitty"
-
     };
 
     // Bind play function to App component
@@ -63,6 +60,14 @@ class App extends React.Component {
       // Check status of board
       let result = this.checkAll(board);
       if (result === this.state.player1) {
+        let reds = document.querySelectorAll('duck');
+        let yellows = document.querySelectorAll('kat');
+        yellows.forEach(item => {
+          item.setAttribute("src", "/static/media/KAThole.85303160.png")
+        })
+        reds.forEach(item => {
+          item.setAttribute("src", "/static/media/DUCKhole.8ee2e39d.png")
+        })
         this.setState({ board, gameOver: true, message: 'Player 2 wins!' });
       } else if (result === this.state.player2) {
         this.setState({ board, gameOver: true, message: 'Player 2 wins!' });
@@ -158,7 +163,7 @@ class App extends React.Component {
   render() {
     return (
       <div><h1 class="animated fadeInRightBig">Duck Duck Kitty</h1>
-        <div class="circles">
+        <div className="circles">
           <img className="image" src={duckhole}></img>
           <img className="image" src={kathole}></img>
         </div>
@@ -191,21 +196,24 @@ const Row = ({ row, play }) => {
 const Cell = ({ value, columnIndex, play }) => {
   let color = 'white';
   let image = blank
+  let id = ""
   if (value === 1) {
     color = "red";
     image = duckhole;
+    id = "duck"
   } else if (value === 2) {
     color = "yellow";
     image = kathole;
+    id = "kat"
   }
 
   return (
-    <td className="red">
+    <td>
       <div className="cell" onClick={() => { play(columnIndex) }}>
         {/* <div className={color}></div> */}
-        <img className={color} src={image}></img>
+        <img className={color} value={id} src={image}></img>
       </div>
-    </td>
+    </td >
   );
 };
 export default App
