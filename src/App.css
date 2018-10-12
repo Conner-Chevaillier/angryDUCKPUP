@@ -105,20 +105,15 @@ table {
 .red {
   height: 60px;
   width: 60px;
-  background: './KAThole.png';
-  /* background-image:url('KAThole.png'); */
-  background-color: red;
   border-radius: 100px;
-  transition: background-color 0.5s;
+  transition: background-image 0.5s;
 }
 
 .yellow {
   height: 60px;
   width: 60px;
-  background-color: yellow;
-  background: './DUCKhole.png';
   border-radius: 100px;
-  transition: background-color 0.5s;
+  transition: background-image 0.5s;
 }
 
 @keyframes App-logo-spin {

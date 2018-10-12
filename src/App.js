@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import kathole from './KAThole.png';
 import duckhole from './DUCKhole.png';
+import blank from './blank.png'
 
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
       board: [],
       gameOver: false,
       message: ''
+
     };
 
     // Bind play function to App component
@@ -35,6 +37,7 @@ class App extends React.Component {
     this.setState({
       board,
       currentPlayer: this.state.player1,
+
       gameOver: false,
       message: ''
     });
@@ -58,9 +61,9 @@ class App extends React.Component {
       // Check status of board
       let result = this.checkAll(board);
       if (result === this.state.player1) {
-        this.setState({ board, gameOver: true, message: 'Player 1 (red) wins!' });
+        this.setState({ board, gameOver: true, message: 'Player 2 ${this.state.player2} wins!' });
       } else if (result === this.state.player2) {
-        this.setState({ board, gameOver: true, message: 'Player 2 (yellow) wins!' });
+        this.setState({ board, gameOver: true, message: 'Player 2 ${this.state.player2} wins!' });
       } else if (result === 'draw') {
         this.setState({ board, gameOver: true, message: 'Draw game.' });
       } else {
@@ -152,8 +155,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div><h1 className="animated fadeInRightBig">Duck Duck Kitty</h1>
-        <div className="circles">
+      <div><h1 class="animated fadeInRightBig">Duck Duck Kitty</h1>
+        <div class="circles">
           <img className="image" src={duckhole}></img>
           <img className="image" src={kathole}></img>
         </div>
@@ -185,16 +188,20 @@ const Row = ({ row, play }) => {
 
 const Cell = ({ value, columnIndex, play }) => {
   let color = 'white';
+  let image = blank
   if (value === 1) {
-    color = 'red';
+    color = "red";
+    image = duckhole;
   } else if (value === 2) {
-    color = 'yellow';
+    color = "yellow";
+    image = kathole;
   }
 
   return (
-    <td>
+    <td className="red">
       <div className="cell" onClick={() => { play(columnIndex) }}>
-        <div className={color}></div>
+        {/* <div className={color}></div> */}
+        <img className={color} src={image}></img>
       </div>
     </td>
   );
