@@ -152,7 +152,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div><h1 className="animated fadeInRightBig">Duck Duck Kitty</h1>
+        <div className="circles">
+          <img className="image" src={duckhole}></img>
+          <img className="image" src={kathole}></img>
+        </div>
+        <div id="main"></div>
         <div className="button" onClick={() => { this.initBoard() }}>New Game</div>
 
         <table>

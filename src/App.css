@@ -82,12 +82,12 @@ table {
   justify-content: center;
 }
 
-.red-sm {
-  background-color: red;
+.red {
+  background-img:url('KAThole.png');
 }
 
-.yellow-sm {
-  background-color: yellow;
+.yellow{
+  background-img:url('DUCKhole.png');
 }
 
 .message {
@@ -105,6 +105,8 @@ table {
 .red {
   height: 60px;
   width: 60px;
+  background: './KAThole.png';
+  /* background-image:url('KAThole.png'); */
   background-color: red;
   border-radius: 100px;
   transition: background-color 0.5s;
@@ -114,6 +116,7 @@ table {
   height: 60px;
   width: 60px;
   background-color: yellow;
+  background: './DUCKhole.png';
   border-radius: 100px;
   transition: background-color 0.5s;
 }
@@ -125,4 +128,9 @@ table {
   to {
     transform: rotate(360deg);
   }
+}
+.image{
+  border-radius: 50%;
+  height: 6em;
+  padding-left: 1em;
 }
