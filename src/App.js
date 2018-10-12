@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import kathole from './KAThole.png';
 import duckhole from './DUCKhole.png';
-import blank from './blank.png'
+import blank from './white.png'
 
 
 class App extends React.Component {
@@ -16,7 +16,9 @@ class App extends React.Component {
       currentPlayer: null,
       board: [],
       gameOver: false,
-      message: ''
+      message: '',
+      p2: "DogDuck",
+      p1: "Kitty"
 
     };
 
@@ -61,11 +63,11 @@ class App extends React.Component {
       // Check status of board
       let result = this.checkAll(board);
       if (result === this.state.player1) {
-        this.setState({ board, gameOver: true, message: 'Player 2 ${this.state.player2} wins!' });
+        this.setState({ board, gameOver: true, message: 'Player 2 wins!' });
       } else if (result === this.state.player2) {
-        this.setState({ board, gameOver: true, message: 'Player 2 ${this.state.player2} wins!' });
+        this.setState({ board, gameOver: true, message: 'Player 2 wins!' });
       } else if (result === 'draw') {
-        this.setState({ board, gameOver: true, message: 'Draw game.' });
+        this.setState({ board, gameOver: true, message: 'Player2 Wins' });
       } else {
         this.setState({ board, currentPlayer: this.togglePlayer() });
       }
@@ -142,7 +144,7 @@ class App extends React.Component {
         }
       }
     }
-    return 'draw';
+    return 'Player 2 Wins';
   }
 
   checkAll(board) {
